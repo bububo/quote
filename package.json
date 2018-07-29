@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode=development",
-    "prod": "webpack --mode=production"
+    "dev": "SET NODE_ENV=development &webpack --mode=development",
+    "prod": "SET NODE_ENV=production &webpack --mode=production",
+    "start": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,12 @@
   "dependencies": {
     "webpack": "^4.16.3",
     "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0"
   }
 }

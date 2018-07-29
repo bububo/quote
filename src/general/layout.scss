@@ -1,0 +1,21 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 0 20px;
+    max-width: 1200px;
+}
+.header {
+    
+    padding: 10px 0; 
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
