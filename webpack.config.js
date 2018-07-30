@@ -25,5 +25,10 @@ module.exports = {
         filename: "[name].css",
         chunkFilename: "[id].css"
     })
-]
+  ],
+  resolve: {
+    alias: {
+      settings: path.resolve(__dirname, 'src/general/settings/settings.scss')
+    }
+  }
 };
