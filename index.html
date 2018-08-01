@@ -13,12 +13,14 @@
             <div class="header__inner">
                 <img src="/images/logo.png"  height="50" alt="logo">
                 <div class="navigation js-nav">
-                    <button class="navigation__burger hamburger js-nav-burger" aria-label="open navigation">
+                    <button class="navigation__burger hamburger js-nav-burger" 
+                    aria-label="open navigation"
+                    aria-controls="main-nav">
                         <div class="hamburger__box">
                             <div class="hamburger__inner"></div>
                         </div>
                     </button>
-                    <nav hidden>
+                    <nav class="navigation__main" id="main-nav" aria-hidden="true">
                         nav
                     </nav>
                 </div>
@@ -27,7 +29,9 @@
         </div>
     </header>
     <main>
-        <div class="js-main"></div>
+        <div class="container">
+            <div class="js-main"></div>
+        </div>
     </main>
     
     <script defer src="/dist/main.js"></script>

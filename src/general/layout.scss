@@ -13,12 +13,16 @@ body {
 
 .container {
     padding: 0 20px;
+    width: 100%;
     max-width: 1050px;
     margin: 0 auto;
 }
 .header {
-    
+    display: flex;
+    align-items: center;
+    height: 75px;
     padding: 10px 0; 
+    border-bottom: 1px solid rgba(0,0,0,.3);
     box-shadow: 0 0 4px rgba(0,0,0,.3);
     background: #fff;
     &__inner {
