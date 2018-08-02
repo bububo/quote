@@ -1,0 +1,46 @@
+@import '~settings';
+
+.quote {
+    max-width: 700px;
+    padding: 10px 50px 30px;
+    margin: 0 auto;
+
+    @include breakpoint(tablet) {
+        padding: 10px 80px 50px;
+    }
+
+    &__main {
+        position: relative;
+        padding-bottom: 20px;
+        font-size: 22px;
+        line-height: 1.5;
+        @include breakpoint(tablet) {
+            font-size: 28px;
+        }
+
+        &::before, &::after {
+            display: block;
+            position: absolute;
+            font-size: 48px;
+            color: $blue;
+            line-height: 1;
+            content: "❝";
+        }
+
+        &::before {
+            top: 0;
+            left: -50px;
+        }
+
+        &:after {
+            bottom: 10px;
+            right: -10px;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__author {
+        font-size: 18px;
+        font-style: italic;
+    }
+}

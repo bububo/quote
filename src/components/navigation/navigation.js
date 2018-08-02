@@ -3,7 +3,6 @@ import './hamburger.scss';
 
 export default class Nav {
     constructor() {
-        console.log('nav');
         this.$el = document.querySelector('.js-nav');
         this.init();
     }
