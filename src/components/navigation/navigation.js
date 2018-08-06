@@ -13,14 +13,24 @@ export default class Nav {
 
         this.isOpened = false;
         this.$burger = this.$el.querySelector('.js-nav-burger');
-        console.log(this.$burger);
+        this.$linksWrap = this.$el.querySelector('.js-nav-links-wrap');
+        this.navEvent = new Event('navProcess');
         this.$burger.addEventListener('click', this.burgerClickHandler.bind(this));
+        this.$linksWrap.addEventListener('click', this.navClickHandler.bind(this));
+        document.addEventListener('click', this.docClickHandler.bind(this));
         
     }
 
     burgerClickHandler() {
-        console.log('click');
         this[this.isOpened ? 'close' : 'open']();
+    }
+
+    navClickHandler(e) {
+        const $link = e.target.closest('.js-nav-link');
+        if ($link) {
+            document.dispatchEvent(this.navEvent);
+        }
+
     }
 
     close() {
@@ -33,5 +43,11 @@ export default class Nav {
         this.isOpened = true;
         this.$burger.classList.add('is-active');
         this.$el.classList.add('is-opened');
+    }
+
+    docClickHandler(e) {
+        if (!e.target.closest('.js-nav')) {
+            this.close();
+        }
     }
 }

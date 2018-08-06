@@ -12,7 +12,13 @@ export default class Quote {
         }
         this.$main = this.$el.querySelector('.js-quote-main');
         this.$author = this.$el.querySelector('.js-quote-author');
+        document.addEventListener('navProcess', this.getQuote.bind(this))
 
+        this.getQuote();
+    }
+
+    getQuote() {
+        this.$el.classList.remove('is-visible');
         const request = fetch(this.endPoint).then((response)=> {
             console.log(response);
             response.json().then((data)=> {
@@ -20,6 +26,7 @@ export default class Quote {
                 console.log(data);
                 this.$main.innerHTML = data[0].content;
                 this.$author.innerHTML = data[0].title;
+                this.$el.classList.add('is-visible');
             })
         })
     }
