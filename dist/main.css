@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%; }
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  flex-direction: column;
+  background: #efefef;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333; }
+
+.container {
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto; }
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  background: #fff; }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+
+.main {
+  display: flex;
+  align-items: center; }
+
+@charset "UTF-8";
+.quote {
+  max-width: 700px;
+  padding: 10px 50px 30px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.5s; }
+  @media (min-width: 768px) {
+    .quote {
+      padding: 10px 80px 50px; } }
+  .quote__main {
+    position: relative;
+    padding-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.5; }
+    @media (min-width: 768px) {
+      .quote__main {
+        font-size: 28px; } }
+    .quote__main::before, .quote__main::after {
+      display: block;
+      position: absolute;
+      font-size: 48px;
+      color: #2D51A3;
+      line-height: 1;
+      content: "\275D"; }
+    .quote__main::before {
+      top: 0;
+      left: -50px; }
+    .quote__main:after {
+      bottom: 10px;
+      right: -10px;
+      transform: rotate(180deg); }
+  .quote__author {
+    font-size: 18px;
+    font-style: italic; }
+  .quote.is-visible {
+    opacity: 1; }
+
+.navigation__main {
+  position: fixed;
+  top: 75px;
+  right: 0;
+  width: 350px;
+  max-width: 100%;
+  padding: 30px;
+  height: 100vh;
+  transform: translateX(105%);
+  transition: transform 0.3s cubic-bezier(0.17, 0.67, 0.63, 1.39);
+  background: #fff;
+  box-shadow: -3px 0px 5px -2px rgba(0, 0, 0, 0.5);
+  z-index: 10; }
+
+.navigation__link {
+  display: block;
+  font-size: 18px;
+  color: #2D51A3;
+  text-decoration: none;
+  padding: 15px 0;
+  text-align: center; }
+  .navigation__link:hover, .navigation__link:focus {
+    color: #172953;
+    text-decoration: underline; }
+
+.navigation.is-opened .navigation__main {
+  transform: translateX(0); }
+
+.hamburger {
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  overflow: visible;
+  margin: 0;
+  cursor: pointer;
+  transition-timing-function: linear;
+  transition-duration: .15s;
+  transition-property: opacity,filter;
+  text-transform: none;
+  color: inherit;
+  border: 0;
+  background-color: transparent;
+  padding: 7px; }
+  .hamburger__box {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px; }
+  .hamburger__inner {
+    background: #2D51A3;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: .22s;
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    transition-property: transform;
+    border-radius: 4px;
+    top: 50%;
+    display: block;
+    margin-top: -2px; }
+    .hamburger__inner::before, .hamburger__inner::after {
+      display: block;
+      content: "";
+      background: #2D51A3;
+      position: absolute;
+      width: 40px;
+      height: 4px;
+      transition-timing-function: ease;
+      transition-duration: .15s;
+      transition-property: transform;
+      border-radius: 4px; }
+    .hamburger__inner::before {
+      top: -10px;
+      transition: top .1s ease-in .25s,opacity .1s ease-in; }
+    .hamburger__inner::after {
+      bottom: -10px;
+      transition: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  .hamburger.is-active .hamburger__inner {
+    transition-delay: .12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: rotate(225deg); }
+    .hamburger.is-active .hamburger__inner::before {
+      top: 0;
+      transition: top .1s ease-out,opacity .1s ease-out .12s;
+      opacity: 0; }
+    .hamburger.is-active .hamburger__inner::after {
+      bottom: 0;
+      transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+      transform: rotate(-90deg); }
+
