@@ -19,7 +19,8 @@ export default class Quote {
 
     getQuote() {
         this.$el.classList.remove('is-visible');
-        const request = fetch(this.endPoint).then((response)=> {
+        const timestamp = Date.now();
+        const request = fetch(`${this.endPoint}&t=${timestamp}`).then((response)=> {
             console.log(response);
             response.json().then((data)=> {
 
